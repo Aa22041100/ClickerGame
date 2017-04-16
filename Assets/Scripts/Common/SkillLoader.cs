@@ -37,7 +37,7 @@ public static class SkillLoader {
 				float baseMoney = float.Parse (iniReader.ReadValue ("" + i, "baseMoney", ""));
 				float upgradeCost = float.Parse (iniReader.ReadValue ("" + i, "upgradeCost", ""));
 				float factor = float.Parse (iniReader.ReadValue ("" + i, "factor", ""));
-                Debug.Log("id: " + id + " ; name: " + name + " ; base cost: " + baseCost);
+
 				// init tmp skill with info
 				Skill tmpSkill = new Skill (id, name, baseCost, baseTime, baseMoney, upgradeCost, factor);
 

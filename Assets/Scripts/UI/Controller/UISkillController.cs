@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class UISkillController : MonoBehaviour {
 
-	[SerializeField]
-	UISkill skillTemplate;
+	public UISkill skillTemplate;
 
 	// Use this for initialization
 	void Start () {
