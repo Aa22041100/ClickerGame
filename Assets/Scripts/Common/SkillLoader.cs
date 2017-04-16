@@ -12,8 +12,8 @@ public static class SkillLoader {
 	/// </summary>
 	/// <returns>List of skill and cache the skill info.</returns>
 	/// <param name="filepath">The filepath which locate to the skill ini config file.</param>
-	public static List<Skill> LoadSkill(string filepath) {
-		if (isLoaded) {
+	public static List<Skill> LoadSkill(string filepath, bool forceLoad = false) {
+		if (isLoaded && !forceLoad) {
 			return skillCache;
 		} else {
             Debug.Log("===Start to load skill===");
@@ -43,6 +43,9 @@ public static class SkillLoader {
 
 				// add to skill cache
 				skillCache.Add (tmpSkill);
+
+				// set loaded to flag to true
+				isLoaded = true;
 			}
 
             Debug.Log("===End of loading skill===");

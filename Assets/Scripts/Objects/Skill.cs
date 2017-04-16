@@ -33,4 +33,12 @@ public class Skill {
         Debug.Log("Factor: " + factor);
         Debug.Log("===End to print skill===");
     }
+
+	public string GetSkillName() {
+		return name;
+	}
+
+	public string GetSkillDesc() {
+		return "no desc currently";
+	}
 }
