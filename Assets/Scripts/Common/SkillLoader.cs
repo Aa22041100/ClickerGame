@@ -13,9 +13,10 @@ public static class SkillLoader {
 	/// <returns>List of skill and cache the skill info.</returns>
 	/// <param name="filepath">The filepath which locate to the skill ini config file.</param>
 	public static List<Skill> LoadSkill(string filepath) {
-		if (!isLoaded) {
+		if (isLoaded) {
 			return skillCache;
 		} else {
+            Debug.Log("===Start to load skill===");
 			INIParser iniReader = new INIParser ();
 			iniReader.Open (filepath);
 
@@ -36,7 +37,7 @@ public static class SkillLoader {
 				float baseMoney = float.Parse (iniReader.ReadValue ("" + i, "baseMoney", ""));
 				float upgradeCost = float.Parse (iniReader.ReadValue ("" + i, "upgradeCost", ""));
 				float factor = float.Parse (iniReader.ReadValue ("" + i, "factor", ""));
-
+                Debug.Log("id: " + id + " ; name: " + name + " ; base cost: " + baseCost);
 				// init tmp skill with info
 				Skill tmpSkill = new Skill (id, name, baseCost, baseTime, baseMoney, upgradeCost, factor);
 
@@ -44,6 +45,7 @@ public static class SkillLoader {
 				skillCache.Add (tmpSkill);
 			}
 
+            Debug.Log("===End of loading skill===");
 			// return list of skill
 			return skillCache;
 		}

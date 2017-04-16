@@ -20,4 +20,17 @@ public class Skill {
 		this.upgradeCost = upgradeCost;
 		this.factor = factor;
 	}
+
+    public void PrintSkillData()
+    {
+        Debug.Log("===Start to print skill===");
+        Debug.Log("ID:" + id);
+        Debug.Log("Skill Name: " + name);
+        Debug.Log("Base Cost: " + baseCost);
+        Debug.Log("Base Time: " + baseTime);
+        Debug.Log("Base Money: " + baseMoney);
+        Debug.Log("Upgrade Cost: " + upgradeCost);
+        Debug.Log("Factor: " + factor);
+        Debug.Log("===End to print skill===");
+    }
 }

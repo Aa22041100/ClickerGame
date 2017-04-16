@@ -8,7 +8,19 @@ public class Player {
 	List<Skill> skillList;
 
 	public Player() {
-		skillList = SkillLoader.LoadSkill ("FILEPATH_HERE");
+		skillList = SkillLoader.LoadSkill (Constants.SKILL_DATA_PATH);
 	}
 
+    public void DebugSkill()
+    {
+        foreach(Skill s in skillList)
+        {
+            s.PrintSkillData();
+        }
+    }
+
+    public int GetSkillLen()
+    {
+        return skillList.ToArray().Length;
+    }
 }
