@@ -2,15 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour {
+public class Player {
 
-	// Use this for initialization
-	void Start () {
-		
+	// Player status
+	List<Skill> skillList;
+
+	public Player() {
+		skillList = SkillLoader.LoadSkill ("FILEPATH_HERE");
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
 }
