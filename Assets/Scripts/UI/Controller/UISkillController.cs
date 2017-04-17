@@ -11,12 +11,16 @@ public class UISkillController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		StartCoroutine (InitSkillPanel ());
+		
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
+	}
+
+	public void Init() {
+		StartCoroutine (InitSkillPanel ());
 	}
 
 	/// <summary>
