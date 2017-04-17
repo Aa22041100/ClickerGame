@@ -16,7 +16,14 @@ public class TestBehaviour : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        player = new Player();
+		// create player object
+        player = new Player ();
+
+		// load saved skill level from player prefs
+		SkillManager.LoadData ();
+
+		// init skill panel UI
+		skillController.Init ();
 	}
 	
 	// Update is called once per frame
@@ -27,9 +34,16 @@ public class TestBehaviour : MonoBehaviour {
 
     public void DebugPlayerObject()
     {
-        Debug.Log("Skill len: " + player.GetSkillLen());
-        player.DebugSkill();
+        Debug.Log("Skill len: " + player.GetSkillLen ());
+        player.DebugSkill ();
     }
 
+	public void DebugSaveSkillLevel() {
+		SkillManager.SaveData ();
+	}
 
+	public void DebugLoadSkillLevel() {
+		SkillManager.LoadData ();
+		skillController.UpdateSkillInfo ();
+	}
 }
