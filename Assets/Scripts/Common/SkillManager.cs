@@ -11,14 +11,38 @@ public static class SkillManager {
 	/// Used to save data to local.
 	/// </summary>
 	public static void SaveData() {
-		
+		// clean cache
+		PlayerPrefs.DeleteAll ();
+
+		// read dictionary and save data to the cache
+		foreach (KeyValuePair<int, int> kvp in skillLevel) {
+			PlayerPrefs.SetInt (kvp.Key.ToString (), kvp.Value);
+		}
+
+		// save player preferences
+		PlayerPrefs.Save ();
 	}
 
 	/// <summary>
 	/// Used to first load save from local.
 	/// </summary>
 	public static void LoadData() {
+		// get skill len from config file
+		int skillLen = SkillLoader.GetSkillLen (Constants.SKILL_DATA_PATH);
 
+		// clean local dictionary cache
+		skillLevel.Clear();
+
+		// read playerprefs and load to dictionary
+		for (int i = 0; i < skillLen; i++) {
+			if (PlayerPrefs.HasKey (i.ToString ())) {
+				// player prefs contains this skill ID
+				skillLevel.Add(i, PlayerPrefs.GetInt(i.ToString()));
+			} else {
+				// player prefs doesn't contain this skill ID and create the default skill level and add into dictionary
+				skillLevel.Add(i, 1);
+			}
+		}
 	}
 
 	/// <summary>
