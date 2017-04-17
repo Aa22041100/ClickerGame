@@ -54,6 +54,17 @@ public static class SkillLoader {
 		}
 	}
 
+	public static int GetSkillLen(string filepath, bool forceLoad = false) {
+		if (isLoaded && !forceLoad) {
+			// return cache length
+			return skillCache.Count;
+		} else {
+			// not a first load or is a force load
+			LoadSkill(filepath, true);
+			return skillCache.Count;
+		}
+	}
+
 	public static bool isSkillLoaded() {
 		return isLoaded;
 	}
