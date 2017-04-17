@@ -48,6 +48,9 @@ public class UISkill : MonoBehaviour {
 		this.level.text = string.Format(skillFormatStr, level);
 	}
 
+	/// <summary>
+	/// Sends the level up message to notify the controller.
+	/// </summary>
 	public void SendLevelUpMsg() {
 		GameObject.FindObjectOfType<UISkillController> ().SendMessage ("_SkillLevelUp", id);
 	}
